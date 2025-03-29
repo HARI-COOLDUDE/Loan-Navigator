@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import pandas as pd
 import pickle as pk
-import scaler
+
 
 def check_cibil():
     cibil = st.slider('Choose Cibil Score', 0, 1000)
@@ -15,7 +15,7 @@ def check_cibil():
     else:
         st.markdown("You will get the loan with maximum interest rate")
 
-def Loan_Approval(scaler):
+def Loan_Approval():
     model_path = os.path.join(os.getcwd(), 'model.pkl')  
     if os.path.exists(model_path):
         with open(model_path, 'rb') as f:
@@ -98,12 +98,12 @@ if(app_mode=='Home'):
     
     
 elif(app_mode == "Personal Loan"):
-    Loan_Approval(scaler)
+    Loan_Approval()
 elif(app_mode == "Education Loan"):
-    Loan_Approval(scaler)
+    Loan_Approval()
 elif(app_mode == "Home Loan"):
-    Loan_Approval(scaler)
+    Loan_Approval()
 elif(app_mode == "Medical Loan"):
-    Loan_Approval(scaler)
+    Loan_Approval()
 elif(app_mode == "Vehicle Loan"):
-    Loan_Approval(scaler)
+    Loan_Approval()
