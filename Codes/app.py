@@ -38,7 +38,7 @@ def Loan_Approval():
             st.markdown('Loan Is Rejected')
             
 def check_cibil():
-    Cibil = st.slider('Choose Cibil Score', 0, 1000)
+    cibil = st.slider('Choose Cibil Score', 0, 1000)
     if cibil >=800:
         st.write("You will get the loan with minimum interest rate")
 
