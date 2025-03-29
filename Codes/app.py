@@ -71,8 +71,12 @@ if(app_mode=='Home'):
         "based on key financial and personal details. Using machine learning, we analyze your information and provide "
         "an instant prediction. This tool is designed to assist individuals and financial institutions in making informed "
         "loan decisions quickly and efficiently. Simply enter your details, and let our AI-powered model do the rest!"
+    )
+    
+    st.write(
         "\n This is a group project created by Hari Milan Arora, Himanshu Singh Bisht, Gulshan Singh and Yukta Kakkar"
     )
+    
     st.write(
         "\n Select the type of loan from the dropdown to apply"
     )
