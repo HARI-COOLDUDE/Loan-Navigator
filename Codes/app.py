@@ -99,16 +99,11 @@ if(app_mode=='Home'):
     
 elif(app_mode == "Personal Loan"):
     Loan_Approval()
-    check_cibil()
 elif(app_mode == "Education Loan"):
     Loan_Approval()
-    check_cibil()
 elif(app_mode == "Home Loan"):
     Loan_Approval()
-    check_cibil()
 elif(app_mode == "Medical Loan"):
     Loan_Approval()
-    check_cibil()
 elif(app_mode == "Vehicle Loan"):
     Loan_Approval()
-    check_cibil()
