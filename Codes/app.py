@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import pandas as pd
 import pickle as pk
-
+import scaler
 
 def check_cibil():
     cibil = st.slider('Choose Cibil Score', 0, 1000)
