@@ -26,7 +26,7 @@ if(app_mode=='Home'):
 
     from PIL import Image
     img_path = os.path.join("Loan-Navigator", "Images", "loanpic.jpg")
-    st.image(img)
+    st.image(img_path)
 
     st.header('Loan Navigator')
 
