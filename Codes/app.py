@@ -15,7 +15,18 @@ def check_cibil():
     else:
         st.markdown("You will get the loan with maximum interest rate")
 
-def Loan_Approval():
+def Loan_Approval(scaler):
+    model_path = os.path.join(os.getcwd(), 'model.pkl')  
+    if os.path.exists(model_path):
+        with open(model_path, 'rb') as f:
+            model = pk.load(f)
+
+    model_path = os.path.join(os.getcwd(), 'scaler.pkl') 
+    if os.path.exists(model_path):
+        with open(model_path, 'rb') as f:
+            model = pk.load(f)
+
+    
     no_of_dep = st.slider('Choose No of dependents', 0, 5)
     grad = st.selectbox('Choose Education',['Graduated','Not Graduated'])
     self_emp = st.selectbox('Self Emoployed ?',['Yes','No'])
@@ -49,18 +60,6 @@ def Loan_Approval():
         else:
             st.markdown('Loan Is Rejected')
             
-
-
-
-model_path = os.path.join(os.getcwd(), 'model.pkl')  
-if os.path.exists(model_path):
-    with open(model_path, 'rb') as f:
-        model = pk.load(f)
-
-model_path = os.path.join(os.getcwd(), 'scaler.pkl') 
-if os.path.exists(model_path):
-    with open(model_path, 'rb') as f:
-        model = pk.load(f)
 
 st.set_page_config(
     page_title="Loan Navigator", 
@@ -99,12 +98,12 @@ if(app_mode=='Home'):
     
     
 elif(app_mode == "Personal Loan"):
-    Loan_Approval()
+    Loan_Approval(scaler)
 elif(app_mode == "Education Loan"):
-    Loan_Approval()
+    Loan_Approval(scaler)
 elif(app_mode == "Home Loan"):
-    Loan_Approval()
+    Loan_Approval(scaler)
 elif(app_mode == "Medical Loan"):
-    Loan_Approval()
+    Loan_Approval(scaler)
 elif(app_mode == "Vehicle Loan"):
-    Loan_Approval()
+    Loan_Approval(scaler)
