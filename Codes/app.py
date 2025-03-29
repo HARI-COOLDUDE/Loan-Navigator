@@ -1,10 +1,17 @@
+import os
 import streamlit as st
 import pandas as pd
 import pickle as pk
 
-model = pk.load(open('model.pkl','rb'))
-scaler = pk.load(open('scaler.pkl','rb'))
+model_path = os.path.join(os.getcwd(), 'model.pkl')  
+if os.path.exists(model_path):
+    with open(model_path, 'rb') as f:
+        model = pk.load(f)
 
+model_path = os.path.join(os.getcwd(), 'scaler.pkl') 
+if os.path.exists(model_path):
+    with open(model_path, 'rb') as f:
+        model = pk.load(f)
 
 st.set_page_config(
     page_title="Loan Navigator", 
@@ -18,7 +25,7 @@ if(app_mode=='Home'):
     st.title("🏦 Loan Approval Prediction System")
 
     from PIL import Image
-    img = Image.open('loanpic.jpg') 
+    img = Image.open('F:\OneDrive\Desktop\Hackathon\Hacknovate 6.0\Loan-Navigator\Images\loanpic.jpg') 
     st.image(img)
 
     st.header('Loan Navigator')
@@ -29,6 +36,7 @@ if(app_mode=='Home'):
         "based on key financial and personal details. Using machine learning, we analyze your information and provide "
         "an instant prediction. This tool is designed to assist individuals and financial institutions in making informed "
         "loan decisions quickly and efficiently. Simply enter your details, and let our AI-powered model do the rest!"
+        "This is a group project created by Hari Milan Arora, Himanshu Singh Bisht, Gulshan Singh and Yukta Kakkar"
     )
 
     st.write("---")
