@@ -3,46 +3,7 @@ import streamlit as st
 import pandas as pd
 import pickle as pk
 
-model_path = os.path.join(os.getcwd(), 'model.pkl')  
-if os.path.exists(model_path):
-    with open(model_path, 'rb') as f:
-        model = pk.load(f)
-
-model_path = os.path.join(os.getcwd(), 'scaler.pkl') 
-if os.path.exists(model_path):
-    with open(model_path, 'rb') as f:
-        model = pk.load(f)
-
-st.set_page_config(
-    page_title="Loan Navigator", 
-    page_icon="🏦"
-    )
-st.sidebar.title('Loan Approval Prediction System')
-app_mode = st.sidebar.selectbox('select page',['Home','Loan Approval'])
-
-
-if(app_mode=='Home'):
-    st.title("🏦 Loan Approval Prediction System")
-
-    from PIL import Image
-    img_path = "path/to/image.png"  # Update with actual path
-    if os.path.exists(img_path):
-        st.image(img_path)
-
-    st.header('Loan Navigator')
-
-
-    st.write(
-        "Welcome to the Loan Approval Prediction System! Our platform helps you determine the likelihood of your loan approval "
-        "based on key financial and personal details. Using machine learning, we analyze your information and provide "
-        "an instant prediction. This tool is designed to assist individuals and financial institutions in making informed "
-        "loan decisions quickly and efficiently. Simply enter your details, and let our AI-powered model do the rest!"
-        "This is a group project created by Hari Milan Arora, Himanshu Singh Bisht, Gulshan Singh and Yukta Kakkar"
-    )
-
-    st.write("---")
-
-elif(app_mode=='Loan Approval'):
+def Loan_Approval():
     no_of_dep = st.slider('Choose No of dependents', 0, 5)
     grad = st.selectbox('Choose Education',['Graduated','Not Graduated'])
     self_emp = st.selectbox('Self Emoployed ?',['Yes','No'])
@@ -75,5 +36,57 @@ elif(app_mode=='Loan Approval'):
             st.markdown('Loan Is Approved')
         else:
             st.markdown('Loan Is Rejected')
+
+model_path = os.path.join(os.getcwd(), 'model.pkl')  
+if os.path.exists(model_path):
+    with open(model_path, 'rb') as f:
+        model = pk.load(f)
+
+model_path = os.path.join(os.getcwd(), 'scaler.pkl') 
+if os.path.exists(model_path):
+    with open(model_path, 'rb') as f:
+        model = pk.load(f)
+
+st.set_page_config(
+    page_title="Loan Navigator", 
+    page_icon="🏦"
+    )
+st.sidebar.title('Loan Approval Prediction System')
+app_mode = st.sidebar.selectbox('select page',['Home','Personal Loan','Education Loan','Home Loan','Medical Loan','Vehicle Loan'])
+
+
+if(app_mode=='Home'):
+    st.title("🏦 Loan Approval Prediction System")
+
+    from PIL import Image
+    img_path = "path/to/image.png"  
+    if os.path.exists(img_path):
+        st.image(img_path)
+
+    st.header('Loan Navigator')
+
+
+    st.write(
+        "Welcome to the Loan Approval Prediction System! Our platform helps you determine the likelihood of your loan approval "
+        "based on key financial and personal details. Using machine learning, we analyze your information and provide "
+        "an instant prediction. This tool is designed to assist individuals and financial institutions in making informed "
+        "loan decisions quickly and efficiently. Simply enter your details, and let our AI-powered model do the rest!"
+        "\n This is a group project created by Hari Milan Arora, Himanshu Singh Bisht, Gulshan Singh and Yukta Kakkar"
+    )
+    st.write(
+        "\n Select the type of loan from the dropdown to apply"
+    )
+    st.write("---")
     
-        
+    
+elif(app_mode == "Personal Loan"):
+    Loan_Approval()
+elif(app_mode == "Education Loan"):
+    Loan_Approval()
+elif(app_mode == "Home Loan"):
+    Loan_Approval()
+elif(app_mode == "Medical Loan"):
+    Loan_Approval()
+elif(app_mode == "Vehicle Loan"):
+    Loan_Approval()
+
