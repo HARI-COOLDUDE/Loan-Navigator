@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import pickle as pk
 
+
 def Loan_Approval():
     no_of_dep = st.slider('Choose No of dependents', 0, 5)
     grad = st.selectbox('Choose Education',['Graduated','Not Graduated'])
@@ -14,7 +15,7 @@ def Loan_Approval():
     Assets = st.slider('Choose Assets', 0, 10000000)
 
 
-
+    
     if grad =='Graduated':
         grad_s =0
     else:
@@ -36,6 +37,13 @@ def Loan_Approval():
             st.markdown('Loan Is Approved')
         else:
             st.markdown('Loan Is Rejected')
+            
+def check_cibil():
+    cibil = st.slider(0,1000)
+    if cibil >=800:
+        st.write("You will get the loan with minimum interest rate")
+
+
 
 model_path = os.path.join(os.getcwd(), 'model.pkl')  
 if os.path.exists(model_path):
