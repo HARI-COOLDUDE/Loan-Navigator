@@ -25,7 +25,7 @@ if(app_mode=='Home'):
     st.title("🏦 Loan Approval Prediction System")
 
     from PIL import Image
-    img = Image.open('F:\OneDrive\Desktop\Hackathon\Hacknovate 6.0\Loan-Navigator\Images\loanpic.jpg') 
+    img_path = os.path.join("Loan-Navigator", "Images", "loanpic.jpg")
     st.image(img)
 
     st.header('Loan Navigator')
