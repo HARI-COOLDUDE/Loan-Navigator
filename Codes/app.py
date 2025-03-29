@@ -2,7 +2,9 @@ import os
 import streamlit as st
 import pandas as pd
 import pickle as pk
+from sklearn.preprocessing import StandardScaler
 
+scaler = StandardScaler()
 
 def check_cibil():
     cibil = st.slider('Choose Cibil Score', 0, 1000)
@@ -23,8 +25,8 @@ def Loan_Approval():
 
     model_path = os.path.join(os.getcwd(), 'scaler.pkl') 
     if os.path.exists(model_path):
-        with open(model_path, 'rb') as f:
-            model = pk.load(f)
+        with open(model_path, 'rb') as f1:
+            model = pk.load(f1)
 
     
     no_of_dep = st.slider('Choose No of dependents', 0, 5)
