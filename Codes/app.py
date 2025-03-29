@@ -21,7 +21,7 @@ def Loan_Approval():
     Annual_Income = st.slider('Choose Annual Income', 0, 10000000)
     Loan_Amount = st.slider('Choose Loan Amount', 0, 10000000)
     Loan_Dur = st.slider('Choose Loan Duration', 0, 20)
-    check_cibil()
+    Cibil = check_cibil()
     Assets = st.slider('Choose Assets', 0, 10000000)
 
 
@@ -38,7 +38,7 @@ def Loan_Approval():
 
 
     if st.button("Predict"):
-        pred_data = pd.DataFrame([[no_of_dep,grad_s,emp_s,Annual_Income,Loan_Amount,Loan_Dur,Assets]],
+        pred_data = pd.DataFrame([[no_of_dep,grad_s,emp_s,Annual_Income,Loan_Amount,Loan_Dur,Cibil,Assets]],
                             columns=['no_of_dependents','education','self_employed','income_annum','loan_amount','loan_term','Cibil score','Assets'])
         pred_data = scaler.transform(pred_data)
         predict = model.predict(pred_data)
