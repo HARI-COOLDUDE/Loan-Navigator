@@ -7,9 +7,9 @@ def check_cibil():
     cibil = st.slider('Choose Cibil Score', 0, 1000)
     if cibil >=800:
         st.markdown("You will get the loan with minimum interest rate")
-    elif 800 < cibil >= 700:
+    elif 800 > cibil >= 700:
         st.markdown("You will get the loan with average interest rate")
-    elif 700 < cibil >= 550:
+    elif 700 > cibil >= 550:
         st.markdown("You will get the loan with above average interest rate")
     else:
         st.markdown("You will get the loan with maximum interest rate")
