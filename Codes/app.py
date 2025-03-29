@@ -25,7 +25,8 @@ if(app_mode=='Home'):
     st.title("🏦 Loan Approval Prediction System")
 
     from PIL import Image
-    img_path = os.path.join("Loan-Navigator", "Images", "loanpic.jpg")
+    img_path = "path/to/image.png"  # Update with actual path
+    if os.path.exists(img_path):
     st.image(img_path)
 
     st.header('Loan Navigator')
